@@ -6,7 +6,7 @@
   <title>KickMatch 鞋款推薦表單</title>
   <style>
     body {
-      background-image: url("WhatsApp%20Image%202025-05-05%20at%2016.05.14_a72b0a4f.jpg");
+      background-image: url("background.jpg");
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
@@ -56,7 +56,7 @@
       border: 1px solid #ccc;
       border-radius: 4px;
     }
-    input[type="checkbox"], input[type="radio"] {
+    input[type="checkbox"] {
       margin-right: 8px;
     }
     button[type="submit"] {
@@ -75,59 +75,58 @@
     }
   </style>
   <script>
+    const textMap = {
+      zh: {
+        title: "KickMatch 鞋款推薦表單",
+        subtitle: "穿得型，打得勁。KickMatch 為你推薦最啱波鞋。",
+        name: "你叫咩名？",
+        namePh: "例如：陳大文",
+        position: "你打開咩位置？（可多選）",
+        positions: ["控球後衛 (PG)", "得分後衛 (SG)", "小前鋒 (SF)", "大前鋒 (PF)", "中鋒 (C)"],
+        priority: "你最重視籃球鞋邊一方面？（可多選）",
+        priorities: ["輕身", "緩震好", "包腳貼服", "抓地力強", "高筒支撐腳眼"],
+        court: "你通常喺邊度打波？",
+        courtOptions: ["室內木地板", "室內膠地／磚地", "戶外地（石屎／柏油）", "室內戶外都有"],
+        heightWeight: "請輸入你嘅身高同體重：",
+        heightPh: "例如：175cm / 70kg",
+        shoeSize: "你穿咩鞋碼？（請選擇美碼 US，已列出男女對應）",
+        budget: "你預算係幾多？",
+        pricePh: "請輸入金額，例如：150",
+        contact: "你希望我點樣聯絡你？（輸入 WhatsApp 或 Email）",
+        contactPh: "例如：+1 647... 或 example@email.com",
+        submit: "提交資料",
+        toggle: "Switch to English"
+      },
+      en: {
+        title: "KickMatch Shoe Recommendation Form",
+        subtitle: "Look good, play better. KickMatch helps you find the right basketball shoes.",
+        name: "What's your name?",
+        namePh: "e.g. Chan Tai Man",
+        position: "Which positions do you usually play? (Select all that apply)",
+        positions: ["Point Guard (PG)", "Shooting Guard (SG)", "Small Forward (SF)", "Power Forward (PF)", "Center (C)"],
+        priority: "What features do you value most in basketball shoes?",
+        priorities: ["Lightweight", "Good Cushioning", "Snug Fit", "Strong Grip", "High Ankle Support"],
+        court: "Where do you usually play?",
+        courtOptions: ["Indoor hardwood", "Indoor tile", "Outdoor concrete", "Both indoor & outdoor"],
+        heightWeight: "Your height and weight:",
+        heightPh: "e.g. 175cm / 70kg",
+        shoeSize: "What is your US shoe size? (Men/Women pairs shown)",
+        budget: "What is your budget?",
+        pricePh: "Enter amount, e.g. 150",
+        contact: "How can we contact you? (WhatsApp or Email)",
+        contactPh: "e.g. +1 647... or example@email.com",
+        submit: "Submit",
+        toggle: "切換到中文"
+      }
+    };
+
     function toggleLang() {
       const html = document.documentElement;
-      const isChinese = html.lang === 'zh';
-      html.lang = isChinese ? 'en' : 'zh';
+      const currentLang = html.lang;
+      const newLang = currentLang === 'zh' ? 'en' : 'zh';
+      const t = textMap[newLang];
 
-      const textMap = {
-        zh: {
-          title: "KickMatch 鞋款推薦表單",
-          subtitle: "穿得型，打得勁。KickMatch 為你推薦最啱波鞋。",
-          name: "你叫咩名？",
-          namePh: "例如：陳大文",
-          position: "你打開咩位置？（可多選）",
-          positions: ["控球後衛 (PG)", "得分後衛 (SG)", "小前鋒 (SF)", "大前鋒 (PF)", "中鋒 (C)"],
-          priority: "你最重視籃球鞋邊一方面？（可多選）",
-          priorities: ["輕身", "緩震好", "包腳貼服", "抓地力強", "高筒支撐腳眼"],
-          court: "你通常喺邊度打波？",
-          courtOptions: ["室內木地板", "室內膠地／磚地", "戶外地（石屎／柏油）", "室內戶外都有"],
-          heightWeight: "請輸入你嘅身高同體重：",
-          heightPh: "例如：175cm / 70kg",
-          shoeSize: "你穿咩鞋碼？（請選擇美碼 US，已列出男女對應）",
-          budget: "你預算係幾多？",
-          pricePh: "請輸入金額，例如：150",
-          contact: "你希望我點樣聯絡你？（輸入 WhatsApp 或 Email）",
-          contactPh: "例如：+1 647... 或 example@email.com",
-          submit: "提交資料",
-          toggle: "切換到英文"
-        },
-        en: {
-          title: "KickMatch Shoe Recommendation Form",
-          subtitle: "Look good, play better. KickMatch helps you find the right basketball shoes.",
-          name: "What's your name?",
-          namePh: "e.g. Chan Tai Man",
-          position: "Which positions do you usually play? (Select all that apply)",
-          positions: ["Point Guard (PG)", "Shooting Guard (SG)", "Small Forward (SF)", "Power Forward (PF)", "Center (C)"],
-          priority: "What features do you value most in basketball shoes?",
-          priorities: ["Lightweight", "Good Cushioning", "Snug Fit", "Strong Grip", "High Ankle Support"],
-          court: "Where do you usually play?",
-          courtOptions: ["Indoor hardwood", "Indoor tile", "Outdoor concrete", "Both indoor & outdoor"],
-          heightWeight: "Your height and weight:",
-          heightPh: "e.g. 175cm / 70kg",
-          shoeSize: "What is your US shoe size? (Men/Women pairs shown)",
-          budget: "What is your budget?",
-          pricePh: "Enter amount, e.g. 150",
-          contact: "How can we contact you? (WhatsApp or Email)",
-          contactPh: "e.g. +1 647... or example@email.com",
-          submit: "Submit",
-          toggle: "切換到中文"
-        }
-      };
-
-      const lang = isChinese ? 'en' : 'zh';
-      const t = textMap[lang];
-
+      html.lang = newLang;
       document.getElementById('form-title').textContent = t.title;
       document.getElementById('form-subtitle').textContent = t.subtitle;
       document.getElementById('label-name').textContent = t.name;
@@ -157,66 +156,79 @@
     </div>
     <h1 id="form-title">KickMatch 鞋款推薦表單</h1>
     <h2 id="form-subtitle">穿得型，打得勁。KickMatch 為你推薦最啱波鞋。</h2>
-    <form>
-      <label id="label-name">你叫咩名？</label>
-      <input type="text" id="input-name" placeholder="例如：陳大文">
+   <form action="https://formsubmit.co/anthonychan560@gmail.com" method="POST">
+  <input type="hidden" name="_subject" value="New KickMatch Form Submission" />
 
-      <label id="label-position">你打開咩位置？（可多選）</label>
-      <div><input type="checkbox"><span class="position-label">控球後衛 (PG)</span></div>
-      <div><input type="checkbox"><span class="position-label">得分後衛 (SG)</span></div>
-      <div><input type="checkbox"><span class="position-label">小前鋒 (SF)</span></div>
-      <div><input type="checkbox"><span class="position-label">大前鋒 (PF)</span></div>
-      <div><input type="checkbox"><span class="position-label">中鋒 (C)</span></div>
+  <label id="label-name">你叫咩名？</label>
+  <input type="text" id="input-name" name="name" placeholder="例如：陳大文">
 
-      <label id="label-priority">你最重視籃球鞋邊一方面？（可多選）</label>
-      <div><input type="checkbox"><span class="priority-label">輕身</span></div>
-      <div><input type="checkbox"><span class="priority-label">緩震好</span></div>
-      <div><input type="checkbox"><span class="priority-label">包腳貼服</span></div>
-      <div><input type="checkbox"><span class="priority-label">抓地力強</span></div>
-      <div><input type="checkbox"><span class="priority-label">高筒支撐腳眼</span></div>
+  <label id="label-position">你打開咩位置？（可多選）</label>
+  <div><input type="checkbox" name="position[]" value="控球後衛 (PG)"><span class="position-label">控球後衛 (PG)</span></div>
+  <div><input type="checkbox" name="position[]" value="得分後衛 (SG)"><span class="position-label">得分後衛 (SG)</span></div>
+  <div><input type="checkbox" name="position[]" value="小前鋒 (SF)"><span class="position-label">小前鋒 (SF)</span></div>
+  <div><input type="checkbox" name="position[]" value="大前鋒 (PF)"><span class="position-label">大前鋒 (PF)</span></div>
+  <div><input type="checkbox" name="position[]" value="中鋒 (C)"><span class="position-label">中鋒 (C)</span></div>
 
-      <label id="label-court">你通常喺邊度打波？</label>
-      <select id="court-select">
-        <option>室內木地板</option>
-        <option>室內膠地／磚地</option>
-        <option>戶外地（石屎／柏油）</option>
-        <option>室內戶外都有</option>
-      </select>
+  <label id="label-priority">你最重視籃球鞋邊一方面？（可多選）</label>
+  <div><input type="checkbox" name="priority[]" value="輕身"><span class="priority-label">輕身</span></div>
+  <div><input type="checkbox" name="priority[]" value="緩震好"><span class="priority-label">緩震好</span></div>
+  <div><input type="checkbox" name="priority[]" value="包腳貼服"><span class="priority-label">包腳貼服</span></div>
+  <div><input type="checkbox" name="priority[]" value="抓地力強"><span class="priority-label">抓地力強</span></div>
+  <div><input type="checkbox" name="priority[]" value="高筒支撐腳眼"><span class="priority-label">高筒支撐腳眼</span></div>
 
-      <label id="label-height">請輸入你嘅身高同體重：</label>
-      <input type="text" id="input-height" placeholder="例如：175cm / 70kg">
+  <label id="label-court">你通常喺邊度打波？</label>
+  <select id="court-select" name="court">
+    <option>室內木地板</option>
+    <option>室內膠地／磚地</option>
+    <option>戶外地（石屎／柏油）</option>
+    <option>室內戶外都有</option>
+  </select>
 
-      <label id="label-shoesize">你穿咩鞋碼？（請選擇美碼 US，已列出男女對應）</label>
-      <select>
-        <option>M6 / W7.5</option>
-        <option>M7 / W8.5</option>
-        <option>M8 / W9.5</option>
-        <option>M9 / W10.5</option>
-        <option>M10 / W11.5</option>
-        <option>M11 / W12.5</option>
-        <option>M12 / W13.5</option>
-      </select>
+  <label id="label-height">請輸入你嘅身高同體重：</label>
+  <input type="text" id="input-height" name="height_weight" placeholder="例如：175cm / 70kg">
 
-      <label id="label-budget">你預算係幾多？</label>
-      <input type="text" id="input-price" placeholder="請輸入金額，例如：150">
+  <label id="label-shoesize">你穿咩鞋碼？（請選擇美碼 US，已列出男女對應）</label>
+  <select name="shoe_size">
+    <option>M6 / W7.5</option>
+    <option>M6.5 / W8</option>
+    <option>M7 / W8.5</option>
+    <option>M7.5 / W9</option>
+    <option>M8 / W9.5</option>
+    <option>M8.5 / W10</option>
+    <option>M9 / W10.5</option>
+    <option>M9.5 / W11</option>
+    <option>M10 / W11.5</option>
+    <option>M10.5 / W12</option>
+    <option>M11 / W12.5</option>
+    <option>M11.5 / W13</option>
+    <option>M12 / W13.5</option>
+  </select>
 
-      <label id="label-contact">你希望我點樣聯絡你？（輸入 WhatsApp 或 Email）</label>
-      <input type="text" id="input-contact" placeholder="例如：+1 647... 或 example@email.com">
+  <label id="label-budget">你預算係幾多？</label>
+  <div style="display: flex; gap: 10px;">
+    <select name="currency">
+      <option>CAD（加幣）</option>
+      <option>USD（美金）</option>
+      <option>HKD（港幣）</option>
+      <option>CNY（人民幣）</option>
+      <option>EUR（歐元）</option>
+      <option>JPY（日圓）</option>
+    </select>
+    <input type="text" id="input-price" name="budget" placeholder="請輸入金額，例如：150">
+  </div>
 
-      <button type="submit" id="submit-btn">提交資料</button>
-    </form>
+  <label id="label-contact">你希望我點樣聯絡你？（輸入 WhatsApp 或 Email）</label>
+  <input type="text" id="input-contact" name="contact" placeholder="例如：+1 647... 或 example@email.com">
+
+  <button type="submit" id="submit-btn">提交資料</button>
+</form>
+
     <div class="lang-toggle">
-      <button id="toggle-btn" onclick="toggleLang()">切換到英文</button>
+      <button id="toggle-btn" onclick="toggleLang()">Switch to English</button>
     </div>
   </div>
 </body>
 </html>
-<div id="ig-link" style="text-align: center; margin-top: 30px;">
-  <a href="https://www.instagram.com/chanmuinam_" target="_blank" style="text-decoration: none; color: #E1306C; font-weight: bold; font-size: 16px;">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" style="width: 24px; height: 24px; vertical-align: middle; margin-right: 8px;">
-    Follow us on Instagram @chanmuinam_
-  </a>
+<div style="text-align: center; margin-top: 20px;">
+  <p>Follow us on Instagram: <a href="https://www.instagram.com/chanmuinam_" target="_blank">@chanmuinam_</a></p>
 </div>
-document.getElementById("ig-link").querySelector("a").innerHTML =
-  '<img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" style="width: 24px; height: 24px; vertical-align: middle; margin-right: 8px;">' +
-  (lang === 'zh' ? '追蹤我哋 IG @chanmuinam_' : 'Follow us on Instagram @chanmuinam_');
