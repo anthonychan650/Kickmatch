@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KickMatch 鞋款推薦表單</title>
+  <style>
+    body {
+      background-image: url("WhatsApp Image 2025-05-05 at 16.05.14_a72b0a4f.jpg");
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      font-family: Arial, sans-serif;
+      padding: 30px;
+    }
+    .container {
+      background: rgba(255, 255, 255, 0.9);
+      padding: 30px;
+      border-radius: 12px;
+      max-width: 600px;
+      margin: auto;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    label {
+      font-weight: bold;
+      display: block;
+      margin-top: 20px;
+    }
+    input[type="text"], select {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    input[type="checkbox"], input[type="radio"] {
+      margin-right: 8px;
+    }
+    button[type="submit"] {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-top: 20px;
+      display: block;
+      width: 100%;
+    }
+    button[type="submit"]:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>KickMatch 鞋款推薦表單</h1>
+    <form action="https://formsubmit.co/anthonychan560@gmail.com" method="POST">
+      <input type="hidden" name="_captcha" value="false">
+
+      <label>你打開咩位置？（可多選）</label><br />
+      <input type="checkbox" name="position" value="PG"> 控球後衛 (PG)<br />
+      <input type="checkbox" name="position" value="SG"> 得分後衛 (SG)<br />
+      <input type="checkbox" name="position" value="SF"> 小前鋒 (SF)<br />
+      <input type="checkbox" name="position" value="PF"> 大前鋒 (PF)<br />
+      <input type="checkbox" name="position" value="C"> 中鋒 (C)<br />
+
+      <label>你最重視籃球鞋邊一方面？</label><br />
+      <input type="radio" name="priority" value="lightweight"> 輕身<br />
+      <input type="radio" name="priority" value="cushioning"> 緩震好<br />
+      <input type="radio" name="priority" value="lockdown"> 包腳貼服<br />
+      <input type="radio" name="priority" value="grip"> 抓地力強<br />
+      <input type="radio" name="priority" value="ankle"> 高筒支撐腳眼<br />
+
+      <label>你通常喺邊度打波？</label>
+      <select name="court">
+        <option value="hardwood">室內木地板</option>
+        <option value="tile">室內膠地／磚地</option>
+        <option value="outdoor">戶外地（石屎／柏油）</option>
+        <option value="both">室內戶外都有</option>
+      </select>
+
+      <label>請輸入你嘅身高同體重：</label>
+      <input type="text" name="heightWeight" placeholder="例如：175cm / 70kg">
+
+      <label>你穿咩鞋碼（美碼 US）？</label>
+      <input type="text" name="shoeSize" placeholder="例如：9.5">
+
+      <label>你預算係幾多加幣 (CAD)？</label>
+      <select name="budget">
+        <option value="under100">$100 以下</option>
+        <option value="100-150">$100–$150</option>
+        <option value="150-200">$150–$200</option>
+        <option value="250plus">$250 以上</option>
+      </select>
+
+      <button type="submit">提交資料</button>
+    </form>
+  </div>
+</body>
+</html>
